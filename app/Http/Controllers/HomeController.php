@@ -27,7 +27,6 @@ class HomeController extends Controller
 
         $sales_yesterday = Transaction::whereDate('created_at', $yesterday)->count();
         $sum_yesterday = Transaction::whereDate('created_at', $yesterday)->sum('total_price');
-
         
         $sales_today = Transaction::whereDate('created_at', '=', date('Y-m-d'))->count();
         $sales_weekly = Transaction::where('created_at', '>', Carbon::now()->startOfWeek())
